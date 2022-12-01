@@ -3,7 +3,7 @@ package io.bnjns.puzzle
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
-class DayTwoTests : FunSpec() {
+class Day02Tests : FunSpec() {
     init {
         context("the example") {
             val input = """
@@ -16,11 +16,11 @@ class DayTwoTests : FunSpec() {
             """.trimIndent()
             
             test("part 1 should return the correct answer") {
-                DayTwo.partOne(input).shouldBe("150")
+                Day02.partOne(input).shouldBe("150")
             }
             
             test("part 2 should return the correct answer") {
-                DayTwo.partTwo(input).shouldBe("900")
+                Day02.partTwo(input).shouldBe("900")
             }
         }
     }

@@ -2,7 +2,7 @@ package io.bnjns.puzzle
 
 import io.bnjns.Puzzle
 
-object DayOne : Puzzle {
+object Day01 : Puzzle {
     override val day: Int = 1
     override val answers = mapOf(
         1 to "1184",
@@ -34,6 +34,6 @@ object DayOne : Puzzle {
         
         return numIncreased.toString()
     }
+    
+    private fun String.toIntList() = trim().split("\n").map(String::toInt)
 }
-
-fun String.toIntList() = trim().split("\n").map(String::toInt)
