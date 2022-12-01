@@ -2,9 +2,9 @@ package io.bnjns
 
 interface Puzzle {
     val day: Int
+    val answers: Map<Int, String>
     fun partOne(input: String): String
     fun partTwo(input: String): String
-    fun getAnswer(part: Int): String?
 }
 
 fun Puzzle.run(part: Int): String {
@@ -17,7 +17,7 @@ fun Puzzle.run(part: Int): String {
     }
 }
 
-fun Puzzle.check(part: Int, result: String): Boolean? = when (getAnswer(part)) {
+fun Puzzle.check(part: Int, result: String): Boolean? = when (answers[part]) {
     null -> null
     result -> true
     else -> false

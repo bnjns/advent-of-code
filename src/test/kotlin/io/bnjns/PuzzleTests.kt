@@ -20,7 +20,7 @@ class ToCheckStringTests : FunSpec() {
                     "false -> FAIL" to (false to "FAIL"),
                     "null -> UNKNOWN" to (null to "UNKNOWN"),
                 )
-                
+            
             ) { (value, expectedString) ->
                 value.toCheckString().shouldBe(expectedString)
             }
@@ -48,9 +48,9 @@ class PuzzleTests : FunSpec() {
             
             test("running a part should fetch the input from advent of code") {
                 every { puzzle.partOne(any()) } returns "ANSWER"
-    
+                
                 puzzle.run(1)
-    
+                
                 verify(exactly = 1) { AdventOfCode.getInput(5) }
             }
             
@@ -61,12 +61,12 @@ class PuzzleTests : FunSpec() {
                 
                 verify(exactly = 1) { puzzle.partOne(any()) }
             }
-    
+            
             test("running part 2 should call partTwo") {
                 every { puzzle.partTwo(any()) } returns "TWO"
-        
+                
                 puzzle.run(2)
-        
+                
                 verify(exactly = 1) { puzzle.partTwo(any()) }
             }
             
@@ -79,25 +79,29 @@ class PuzzleTests : FunSpec() {
             }
             
             test("checking the right answer should return true") {
-                every { puzzle.getAnswer(any()) } returns "ANSWER"
+                every { puzzle.answers } returns mapOf(
+                    1 to "ANSWER"
+                )
                 
                 
                 val result = puzzle.check(1, "ANSWER")
                 result.shouldNotBeNull()
                 result.shouldBeTrue()
             }
-    
+            
             test("checking the wrong answer should return false") {
-                every { puzzle.getAnswer(any()) } returns "ANSWER"
-    
+                every { puzzle.answers } returns mapOf(
+                    1 to "ANSWER"
+                )
+                
                 val result = puzzle.check(1, "WRONG")
                 result.shouldNotBeNull()
                 result.shouldBeFalse()
             }
-    
+            
             test("checking an undefined answer should return null") {
-                every { puzzle.getAnswer(any()) } returns null
-        
+                every { puzzle.answers } returns mapOf()
+                
                 puzzle.check(1, "ANSWER").shouldBeNull()
             }
         }
