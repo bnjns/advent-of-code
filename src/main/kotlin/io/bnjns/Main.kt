@@ -1,9 +1,9 @@
 package io.bnjns
 
-import io.bnjns.puzzle.DayOne
+import io.bnjns.puzzle.Day01
 
 val days = listOf<Puzzle>(
-    DayOne
+    Day01
 )
 
 fun main(args: Array<String>) = days.forEach(Puzzle::runAll)

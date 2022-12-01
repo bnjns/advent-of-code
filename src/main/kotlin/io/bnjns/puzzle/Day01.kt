@@ -1,9 +1,8 @@
 package io.bnjns.puzzle
 
 import io.bnjns.Puzzle
-import io.bnjns.runAll
 
-object DayOne : Puzzle {
+object Day01 : Puzzle {
     override val day: Int = 1
     override val answers = mapOf(
         1 to "68787",
@@ -19,14 +18,14 @@ object DayOne : Puzzle {
         .groupCaloriesByElf()
         .sumOverTop(3)
         .toString()
+    
+    private fun String.groupCaloriesByElf(): List<List<Int>> = trim()
+        .split("\n\n")
+        .map { it.split("\n").map(String::toInt) }
+    
+    private fun List<List<Int>>.sumOverTop(num: Int = 1): Int = this.asSequence()
+        .map { it.sum() }
+        .sortedDescending()
+        .take(num)
+        .sum()
 }
-
-fun String.groupCaloriesByElf(): List<List<Int>> = trim()
-    .split("\n\n")
-    .map { it.split("\n").map(String::toInt) }
-
-fun List<List<Int>>.sumOverTop(num: Int = 1): Int = this.asSequence()
-    .map { it.sum() }
-    .sortedDescending()
-    .take(num)
-    .sum()
