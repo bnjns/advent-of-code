@@ -13,7 +13,7 @@ fun Puzzle.run(part: Int): String {
     return when (part) {
         1 -> this.partOne(input)
         2 -> this.partTwo(input)
-        else -> throw IllegalArgumentException("Illegal part: $part")
+        else -> throw IllegalArgumentException("Invalid part: $part")
     }
 }
 
@@ -23,7 +23,7 @@ fun Puzzle.check(part: Int, result: String): Boolean? = when (getAnswer(part)) {
     else -> false
 }
 
-private fun Boolean?.toCheckString(): String = when (this) {
+fun Boolean?.toCheckString(): String = when (this) {
     true -> "PASS"
     false -> "FAIL"
     null -> "UNKNOWN"
