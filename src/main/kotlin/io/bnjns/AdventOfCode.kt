@@ -5,7 +5,7 @@ import com.github.kittinunf.fuel.httpGet
 import java.nio.charset.Charset
 
 object AdventOfCode {
-    private const val YEAR = "0000"
+    private const val YEAR = "2021"
     private val cache : MutableMap<Int, String> = mutableMapOf()
     
     init {
